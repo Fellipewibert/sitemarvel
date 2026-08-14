@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Guia Marvel - Para você meu amor.</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Lib para o efeito de Confetes ao completar 100% -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- FUNDO DE ESTRELAS -->
+  <canvas id="space-bg"></canvas>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="logo-badge">MARVEL</div>
+    <h1>GUIA MARVEL <span>Para entender o universo cinematográfico da marvel</span></h1>
+    <p class="subtitle">A ordem cronológica do UCM</p>
+    
+    <!-- BARRA DE PROGRESSO -->
+    <div class="progress-container">
+      <div class="progress-info">
+        <span>PROGRESSO</span>
+        <span id="progress-text">0 / 14 CONCLUÍDOS</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div id="progress-bar" class="progress-bar-fill"></div>
+      </div>
+      <div id="percentage-badge" class="percentage-badge">0%</div>
+    </div>
+  </header>
+
+  <!-- LISTA / GRID DE FILMES -->
+  <main class="timeline-container">
+    <h2>📅 ORDEM CRONOLÓGICA</h2>
+    <div id="movies-grid" class="movies-grid">
+      <!-- Cards gerados via JS -->
+    </div>
+  </main>
+
+  <!-- MODAL DE DETALHES -->
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      
+      <div class="modal-logo-container">
+        <img id="modal-logo" src="" alt="Logo do Filme">
+      </div>
+
+      <h2 id="modal-title">Título do Filme</h2>
+      <p id="modal-info" class="modal-info">2008 • 2h 06min</p>
+      
+      <div class="modal-body">
+        <h3>📖 O que acontece na história:</h3>
+        <p id="modal-synopsis">Resumo da história...</p>
+        
+        <h3>⚡ O que aconteceu nesse meio tempo:</h3>
+        <p id="modal-context">Detalhes importantes da cronologia...</p>
+        
+        <div class="trailer-container">
+          <a id="modal-trailer" href="#" target="_blank" class="btn-trailer">🎬 Assistir ao Trailer</a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-complete" class="btn-complete">Marcar como Lido e Assistido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DA CARTA SECRETA (DISPARADO EM 100%) -->
+  <div id="letter-modal" class="modal">
+    <div class="modal-content letter-content">
+      <span class="close-btn" onclick="closeLetterModal()">&times;</span>
+      
+      <div class="letter-header">
+        <span class="letter-icon">💌</span>
+        <h2>Para o amor da minha vida</h2>
+      </div>
+
+      <div class="letter-body">
+        <p>Amorrrr,</p>
+        <p>
+          Parabensss meu amorrr, você completou a saga do infinitoo, estamos caminhando para a proxima fase da marvel, e eu mal posso esperar para ver vingadores ao seu ladooo, bom, saiba que estou muito orgulhoso de você e fico muito feliz por ter se esforçado para me fazer feliz,obrigado por tudo.
+        </p>
+        <p class="letter-signature">
+          Eu te amo mil milhões! ❤️
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button onclick="closeLetterModal()" class="btn-complete">Guardar no Coração ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+      EU TE AMO MIL MILHÕES
+  </footer>
+
+  <!-- Import do Script apenas uma vez no final do arquivo -->
+  <script src="script.js"></script>
+</body>
+</html>
