@@ -331,7 +331,7 @@ const characters = [
 const infinityStones = [
   {
     id: 1,
-    name: "imagens/espaço.png",
+    name: "joía do espaço",
     color: "Azul 🔷",
     logo: "imagens/espaço.png",
     power: "Concede ao utilizador a capacidade de manipular o espaço, permitindo teletransporte instantâneo para qualquer lugar do universo, criação de buracos de minhoca e alteração das leis da física espacial.",
