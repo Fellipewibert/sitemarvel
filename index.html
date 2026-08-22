@@ -34,15 +34,38 @@
     </div>
   </header>
 
-  <!-- LISTA / GRID DE FILMES -->
-  <main class="timeline-container">
+  <!-- MENU DE ABAS -->
+  <nav class="tabs-nav">
+    <button id="btn-tab-movies" class="tab-btn active" onclick="switchTab('movies')">🎬 Maratona de Filmes</button>
+    <button id="btn-tab-characters" class="tab-btn" onclick="switchTab('characters')">🦸‍♂️ Personagens</button>
+    <button id="btn-tab-stones" class="tab-btn" onclick="switchTab('stones')">💎 Joias do Infinito</button>
+  </nav>
+
+  <!-- SEÇÃO DE FILMES -->
+  <main id="movies-section" class="timeline-container">
     <h2>📅 ORDEM CRONOLÓGICA</h2>
     <div id="movies-grid" class="movies-grid">
       <!-- Cards gerados via JS -->
     </div>
   </main>
 
-  <!-- MODAL DE DETALHES -->
+  <!-- SEÇÃO DE PERSONAGENS (INICIALMENTE OCULTA) -->
+  <section id="characters-section" class="timeline-container" style="display: none;">
+    <h2>🦸‍♂️ PERSONAGENS PRINCIPAIS</h2>
+    <div id="characters-grid" class="movies-grid">
+      <!-- Cards de personagens gerados via JS -->
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE JOIAS DO INFINITO (INICIALMENTE OCULTA) -->
+  <section id="stones-section" class="timeline-container" style="display: none;">
+    <h2>💎 JOIAS DO INFINITO</h2>
+    <div id="stones-grid" class="movies-grid">
+      <!-- Cards das joias gerados via JS -->
+    </div>
+  </section>
+
+  <!-- MODAL DE DETALHES DO FILME -->
   <div id="movie-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -68,6 +91,50 @@
 
       <div class="modal-footer">
         <button id="btn-complete" class="btn-complete">Marcar como Lido e Assistido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALHES DO PERSONAGEM -->
+  <div id="char-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeCharModal()">&times;</span>
+      
+      <div class="modal-logo-container">
+        <img id="char-modal-logo" src="" alt="Foto do Personagem">
+      </div>
+
+      <h2 id="char-modal-title">Nome do Personagem</h2>
+      <p id="char-modal-realname" class="modal-info" style="color: #a0a0a0; margin-bottom: 15px;"></p>
+      
+      <div class="modal-body">
+        <h3>⚡ Poderes & Habilidades:</h3>
+        <p id="char-modal-powers" style="margin-bottom: 20px; color: #d4d4d8; line-height: 1.5;"></p>
+        
+        <h3>📖 História & Origem:</h3>
+        <p id="char-modal-history" style="color: #d4d4d8; line-height: 1.5;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALHES DA JOIA DO INFINITO -->
+  <div id="stone-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeStoneModal()">&times;</span>
+      
+      <div class="modal-logo-container">
+        <img id="stone-modal-logo" src="" alt="Joia do Infinito">
+      </div>
+
+      <h2 id="stone-modal-title">Nome da Joia</h2>
+      <p id="stone-modal-color" class="modal-info" style="margin-bottom: 15px;"></p>
+      
+      <div class="modal-body">
+        <h3>⚡ Poder & Função:</h3>
+        <p id="stone-modal-power" style="margin-bottom: 20px; color: #d4d4d8; line-height: 1.5;"></p>
+        
+        <h3>📖 Onde Aparece / Recipiente:</h3>
+        <p id="stone-modal-container" style="color: #d4d4d8; line-height: 1.5;"></p>
       </div>
     </div>
   </div>
@@ -102,7 +169,7 @@
       EU TE AMO MIL MILHÕES
   </footer>
 
-  <!-- Import do Script apenas uma vez no final do arquivo -->
+  <!-- Import do Script -->
   <script src="script.js"></script>
 </body>
 </html>
