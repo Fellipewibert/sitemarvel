@@ -790,78 +790,7 @@ function triggerConfetti() {
   }
 }
 
-// Fundo de Estrelas
-function initSpace() {
-  const canvas = document.getElementById("space-bg");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
-
-  let stars = [];
-  const numStars = 60;
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  function createStars() {
-    stars = [];
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 1.5 + 0.5,
-        speed: Math.random() * 0.4 + 0.1,
-        opacity: Math.random() * 0.7 + 0.3
-      });
-    }
-  }
-
-  function animateStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    stars.forEach(star => {
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(225, 200, 255, ${star.opacity})`;
-      ctx.fill();
-
-      star.y -= star.speed;
-
-      if (star.y < 0) {
-        star.y = canvas.height;
-        star.x = Math.random() * canvas.width;
-      }
-    });
-
-    requestAnimationFrame(animateStars);
-  }
-
-  window.addEventListener("resize", () => {
-    resizeCanvas();
-    createStars();
-  });
-
-  resizeCanvas();
-  createStars();
-  animateStars();
-}
-
-// Fechar modais ao clicar fora
-window.onclick = function(event) {
-  const movieModal = document.getElementById("movie-modal");
-  const charModal = document.getElementById("char-modal");
-  const stoneModal = document.getElementById("stone-modal");
-  const letterModal = document.getElementById("letter-modal");
-
-  if (event.target === movieModal) closeModal();
-  if (event.target === charModal) closeCharModal();
-  if (event.target === stoneModal) closeStoneModal();
-  if (event.target === letterModal) closeLetterModal();
-};
-
-// Executar após carregar a página
+// Inicialização automática ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
   renderMovies();
-  initSpace();
 });
